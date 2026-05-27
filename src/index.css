@@ -1,0 +1,77 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-headline: "Manrope", sans-serif;
+  --font-display: "Manrope", sans-serif;
+
+  --color-primary: #3366ff;
+  --color-secondary: #00d68f;
+  --color-accent: #ff3d71;
+  --color-value-gold: #ffaa00;
+  
+  --color-background: #f8f9fc;
+  --color-surface: #ffffff;
+  --color-on-surface: #192038;
+  
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-surface font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline;
+  }
+}
+
+.value-gradient {
+  background: linear-gradient(135deg, #3366ff 0%, #3366ff 100%);
+}
+
+.value-gradient-accent {
+  background: linear-gradient(135deg, #ff3d71 0%, #ffaa00 100%);
+}
+
+@keyframes progress-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.shimmer-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-bg::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: progress-shimmer 2s infinite;
+}
+
+.markdown-body h2 {
+  @apply text-xl font-black text-slate-800 mb-4 mt-6 first:mt-0;
+}
+
+.markdown-body p {
+  @apply text-sm text-slate-600 font-medium leading-relaxed mb-4;
+}
+
+.markdown-body ul {
+  @apply list-disc pl-6 mb-4 space-y-1;
+}
+
+.markdown-body li {
+  @apply text-sm text-slate-600 font-medium;
+}
+
+.markdown-body strong {
+  @apply font-black text-secondary uppercase tracking-tight;
+}
+
